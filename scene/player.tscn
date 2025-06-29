@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c28nr042ib7x2"]
+
+[ext_resource type="Script" uid="uid://bfmx2f1i83ysd" path="res://scene/player.gd" id="1_xo3ru"]
+[ext_resource type="Texture2D" uid="uid://dn6d11s1t0pae" path="res://game_assets/M.E.GAmesTexturePack1.0/texture (3).png" id="2_hjaqi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvtld"]
+albedo_texture = ExtResource("2_hjaqi")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hjaqi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fvtld"]
+
+[node name="player" type="RigidBody3D"]
+lock_rotation = true
+linear_damp = 3.0
+script = ExtResource("1_xo3ru")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_fvtld")
+mesh = SubResource("CapsuleMesh_hjaqi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_fvtld")
+
+[node name="TwistPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+[node name="PitchPivot" type="Node3D" parent="TwistPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)

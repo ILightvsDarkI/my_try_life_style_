@@ -13,7 +13,7 @@ background_mode = 2
 sky = SubResource("Sky_r4dyk")
 tonemap_mode = 2
 
-[node name="Node3D" type="Node3D"]
+[node name="main_Camera_Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ibbv8")

@@ -6,10 +6,9 @@
 albedo_texture = ExtResource("1_vtjbo")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vtjbo"]
-size = Vector2(10, 10)
+size = Vector2(20, 20)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_oxc4g"]
-size = Vector3(2, 0.1, 2)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vtjbo"]
 
 [node name="ground" type="StaticBody3D"]
 
@@ -20,5 +19,5 @@ mesh = SubResource("PlaneMesh_vtjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0366235, 0)
-shape = SubResource("BoxShape3D_oxc4g")
+shape = SubResource("WorldBoundaryShape3D_vtjbo")
 debug_color = Color(0.927351, 3.65794e-05, 0.668888, 0.42)
